@@ -19,22 +19,16 @@ export class ShoppingListItemComponent implements OnInit {
   }
 
   public removeItem(){
-    this.myShoppingListService.remove(this.listItem).subscribe(
-      response => this.deleted = true,
-      error => console.log('deu ruim')
-    );
+    this.myShoppingListService.remove(this.listItem);
   }
 
   public editItem(){
-    let copiedItem = new Object();
-    Object.assign(copiedItem, this.listItem);
-    copiedItem['disabled'] = true;
+    let itemEdited = {
+      key: this.listItem.key,
+      disabled: true
+    }
 
-    this.myShoppingListService.edit(copiedItem).subscribe(
-      response => {
-        this.listItem.disabled = true;
-      },
-      error => console.log('deu ruim')
-    );
+    this.myShoppingListService.edit(itemEdited);
   }
+
 }

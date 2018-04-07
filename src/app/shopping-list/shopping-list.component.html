@@ -11,7 +11,7 @@
 </form>
 <ul class="list-group">
   <app-shopping-list-item 
-    *ngFor="let item of listItems"
+    *ngFor="let item of listItems | async"
     [item]="item"> <!-- [] is used to pass objects instead of a string -->
   </app-shopping-list-item>
 </ul>
