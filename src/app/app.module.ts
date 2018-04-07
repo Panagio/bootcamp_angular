@@ -9,6 +9,8 @@ import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/sh
 import { ShoppingListService } from './shopping-list.service';
 import { AboutComponent } from './about/about.component';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,9 +24,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
