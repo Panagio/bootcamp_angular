@@ -24,5 +24,6 @@ export class ShoppingListService {
 
   public edit(item): Observable <Object>{
     return this.myHttpClient.put(`${environment.firebase.databaseURL}/items/${item.key}.json`, item);
+    //change it to patch later: patch will only update what you have asked to
   }
 }
