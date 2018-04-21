@@ -1,8 +1,9 @@
-<div class="container-fluid">
+<div>
   <div *ngIf="authService.afAuth.authState | async as user; else showLogin">
-    <p>Hi {{ user.displayName }}!
+    
+    <!--<p>Hi {{ user.displayName }}!
       <button (click)="logout()">Logout</button>
-    </p>
+    </p>-->
 
     <app-header></app-header>
     <div class="content">

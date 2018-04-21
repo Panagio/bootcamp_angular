@@ -19,7 +19,8 @@ export class ShoppingListService {
           return {
             key: c.payload.key,
             name: c.payload.val()['name'],
-            disabled: c.payload.val()['disabled']
+            quantity: c.payload.val()['quantity'],
+            price: c.payload.val()['price']
           }
         })
       }

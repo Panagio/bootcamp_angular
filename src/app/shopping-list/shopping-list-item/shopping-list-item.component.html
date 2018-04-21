@@ -1,7 +1,35 @@
-<li class="list-group-item" *ngIf="!deleted" [ngClass]="{'disabled': listItem.disabled}">
-  <span>{{listItem.name}}</span>
-  <span class="float-right" *ngIf="!listItem.disabled">
-    <span class="badge badge-danger" (click)="removeItem()">X</span>
-    <span class="badge badge-success" (click)="editItem()">&radic;</span>
-  </span>
-</li>
+<div class="row float-right">
+  <div class="m-3">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      <span>{{myTotalItems}} items</span>
+  </div>
+
+  <div class="float-right m-3">
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <span>R$ {{myTotalPrice}}</span>
+  </div>
+</div>
+
+<table class="table mt-3">
+  <thead class="text-secondary">
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>$</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <tr *ngFor="let item of listItems | async">
+            <td><button (click)="removeItem(item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+            <td>{{item.name}}</td>
+            <td>
+              <button><i class="fa fa-minus fa-1" aria-hidden="true" (click)="decrementQtt(item)"></i></button>
+              <span>{{item.quantity}}</span>
+              <button><i class="fa fa-plus fa-1" aria-hidden="true" (click)="incrementQtt(item)"></i></button>
+            </td>
+            <td><span currencyMask>{{item.price}}</span></td>
+        </tr>
+  </tbody>
+</table>

@@ -15,6 +15,10 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { ShoppingListAddItemFormComponent } from './shopping-list/shopping-list-add-item-form/shopping-list-add-item-form.component';
+import { ShoppingListCheckoutComponent } from './shopping-list/shopping-list-checkout/shopping-list-checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HeaderComponent,
     ShoppingListComponent,
     ShoppingListItemComponent,
-    AboutComponent
+    AboutComponent,
+    ShoppingListAddItemFormComponent,
+    ShoppingListCheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    CurrencyMaskModule
   ],
   providers: [ShoppingListService, AuthService],
   bootstrap: [AppComponent]

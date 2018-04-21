@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingListService } from '../shopping-list.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-shopping-list',
@@ -8,23 +6,16 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  private listItems: Observable<any[]>;
-  private itemToAdd: string = '';
+  private showNewItem: boolean = false;
+  private value = 1;
 
-  constructor(private myShoppingListService: ShoppingListService) { 
-    
+  constructor() { 
   }
 
   ngOnInit() {
-    this.listItems = this.myShoppingListService.listItemsFirebase;
   }
-
-  private addObjectToList(){
-    let newItem = {
-      name: this.itemToAdd,
-      disabled: false
-    };
-    this.myShoppingListService.add(newItem);
-    this.itemToAdd = '';
+  
+  public shouldAdd(){
+    this.showNewItem = !this.showNewItem;
   }
 }

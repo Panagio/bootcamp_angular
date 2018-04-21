@@ -1,17 +1,14 @@
-<form>
-    <div class="input-group mt-3">
-      <input type="text" 
-        class="form-control" 
-        placeholder="Item name"
-        name="myInput"
-        [(ngModel)]="itemToAdd">
-      <button type="submit" class="btn btn-primary"
-        (click)="addObjectToList()">Add</button>
-  </div>
-</form>
-<ul class="list-group">
-  <app-shopping-list-item 
-    *ngFor="let item of listItems | async"
-    [item]="item"> <!-- [] is used to pass objects instead of a string -->
-  </app-shopping-list-item>
-</ul>
+<div class="container">
+    <div class="row m-3">
+        <button type="button" class="btn btn-primary col-4 mx-1" (click)="shouldAdd()">
+          <i class="fa fa-cart-plus" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn btn-primary col-7" routerLink="/shopping-list/shopping-list-checkout">Proceed to checkout</button>
+    </div>
+
+    <app-shopping-list-add-item-form *ngIf="showNewItem">
+    </app-shopping-list-add-item-form> 
+
+    <app-shopping-list-item>
+    </app-shopping-list-item>
+</div>

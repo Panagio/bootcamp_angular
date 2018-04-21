@@ -1,13 +1,14 @@
-<header class="jumbotron p-3 mt-3">
-  <h1>Shopping Cart</h1>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a routerLink="/shopping-list" class="nav-link">My Shopping Cart</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/about" href="#" class="nav-link">About</a>
-      </li>
-    </ul>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Shopping Cart Vnt</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/shopping-list">My Shopping List<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink="/about">My Orders</a>
+        <a class="nav-item nav-link" routerLink="/about">About</a>
+        <a class="nav-item nav-link" routerLink="/about">Logout</a>
+      </div>
+    </div>
   </nav>
-</header>
