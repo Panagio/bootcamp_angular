@@ -9,6 +9,7 @@ export class ShoppingListService {
   private listItems: Array<any>;
   public listItemsFirebase: Observable<any[]>;
   private listItemsRef: AngularFireList<any>;
+  private myTotalPrice: string;
 
   constructor(private myHttpClient: HttpClient, private myDb: AngularFireDatabase) { 
     this.listItemsRef = this.myDb.list('items');
@@ -44,5 +45,13 @@ export class ShoppingListService {
     delete item.key;
 
     this.listItemsRef.update(key, item);
+  }
+
+  public getTotalPrice(){
+    return this.myTotalPrice;
+  }
+
+  public setTotalPrice(newTotal){
+    this.myTotalPrice = newTotal;
   }
 }

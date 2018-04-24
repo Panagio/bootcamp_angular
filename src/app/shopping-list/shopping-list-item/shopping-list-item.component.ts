@@ -27,6 +27,7 @@ export class ShoppingListItemComponent implements OnInit {
         totalPrice = totalPrice + (parseFloat(item['price']) * item['quantity']);
       });
       this.myTotalPrice = totalPrice.toFixed(2);
+      this.myShoppingListService.setTotalPrice(this.myTotalPrice);
     });
   }
 

@@ -6,7 +6,7 @@
         <button type="button" class="btn btn-primary col-7" routerLink="/shopping-list/shopping-list-checkout">Proceed to checkout</button>
     </div>
 
-    <app-shopping-list-add-item-form *ngIf="showNewItem">
+    <app-shopping-list-add-item-form *ngIf="showNewItem" (onActionClicked)="action($event)">
     </app-shopping-list-add-item-form> 
 
     <app-shopping-list-item>

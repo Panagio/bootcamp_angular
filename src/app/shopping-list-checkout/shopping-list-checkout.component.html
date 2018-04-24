@@ -1,0 +1,45 @@
+<ng-template #showModal>
+  <span>Pago</span>    
+</ng-template>
+
+<div class="container">
+    <div class="sleeve">
+      <div class="credit-card" style="background: rgb(4, 39, 153)">
+        <div class="card-company">Bank</div>
+        <div class="card-number">
+          <div class="digit-group">{{myCardNumber}}</div>
+        </div>
+        <div class="card-expire">
+          <span class="card-text">CVC &nbsp;</span> {{myCardCVC}} &nbsp;
+          <span class="card-text"> Expires &nbsp;</span> {{myCardExpireDate}}
+        </div>
+        <div class="card-holder">{{myCardName}}</div>
+        <div class="card-type">Credit card</div>
+      </div>
+    </div>
+</div>
+
+<div class="m-3 text-right">
+  <span>Total: {{myTotalPrice}}</span>
+</div>
+
+<form class="m-3">
+    <div class="form-group">
+      <label>Card Number</label>
+      <input type="text" [textMask]="{mask: myCardNumberMask}" class="form-control" [(ngModel)]="myCardNumber" name="myCardNumber">
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" [(ngModel)]="myCardName" name="myCardName">
+    </div>
+    <div class="form-group">
+        <label>Expire Date</label>
+        <input type="text" [textMask]="{mask: myCardExpireDateMask}" class="form-control" [(ngModel)]="myCardExpireDate" name="myCardExpireDate">
+    </div>
+    <div class="form-group">
+        <label>CVC</label>
+        <input type="text"  [textMask]="{mask: myCardCVCMask}" class="form-control" [(ngModel)]="myCardCVC" name="myCardCVC">
+    </div>
+        <button type="submit" class="btn btn-block btn-primary mt-3" (click)="openModel()">Complete</button>
+  </form>
+  

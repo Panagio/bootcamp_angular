@@ -9,13 +9,17 @@ export class ShoppingListComponent implements OnInit {
   private showNewItem: boolean = false;
   private value = 1;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
   }
-  
-  public shouldAdd(){
+
+  public shouldAdd() {
     this.showNewItem = !this.showNewItem;
+  }
+
+  action(event) {
+    this.showNewItem = false;
   }
 }

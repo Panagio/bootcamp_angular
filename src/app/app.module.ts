@@ -17,7 +17,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ShoppingListAddItemFormComponent } from './shopping-list/shopping-list-add-item-form/shopping-list-add-item-form.component';
-import { ShoppingListCheckoutComponent } from './shopping-list/shopping-list-checkout/shopping-list-checkout.component';
+import { ShoppingListCheckoutComponent } from './shopping-list-checkout/shopping-list-checkout.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ShoppingListCheckoutComponent } from './shopping-list/shopping-list-che
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(APP_ROUTES),
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    TextMaskModule
   ],
   providers: [ShoppingListService, AuthService],
   bootstrap: [AppComponent]
