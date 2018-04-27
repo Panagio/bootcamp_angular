@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ShoppingListService } from '../shopping-list.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { CheckoutModalComponent } from './checkout-modal/checkout-modal.component';
 
 @Component({
   selector: 'app-shopping-list-checkout',
@@ -15,21 +17,23 @@ export class ShoppingListCheckoutComponent implements OnInit {
   private myCardNumberMask: any[] = [/\d/, /\d/, /\d/, /\d/, ' ',  /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/,' ', /\d/, /\d/, /\d/, /\d/];
   private myCardExpireDateMask: any[] = [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   private myCardCVCMask: any[] = [/\d/, /\d/, /\d/];
-  private showModal: boolean =  false;
   private myTotalPrice: string;
+  animal: string;
+  name: string;
 
-  constructor(private myShoppingListService: ShoppingListService) {
+  constructor(private myShoppingListService: ShoppingListService, public dialog: MatDialog) {
     this.myTotalPrice = myShoppingListService.getTotalPrice();
   }
 
   ngOnInit() {
   }
 
-  openModel() {
-    this.showModal = true;
-  }
-  closeModel() {
-    this.showModal = false;
-  }
+  openDialog(): void {
+    this.myShoppingListService.removeAll();
 
+    let dialogRef = this.dialog.open(CheckoutModalComponent, {
+      height: '400px',
+      width: '600px',
+    });
+  }
 }

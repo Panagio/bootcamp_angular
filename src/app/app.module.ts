@@ -19,7 +19,10 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ShoppingListAddItemFormComponent } from './shopping-list/shopping-list-add-item-form/shopping-list-add-item-form.component';
 import { ShoppingListCheckoutComponent } from './shopping-list-checkout/shopping-list-checkout.component';
 import { TextMaskModule } from 'angular2-text-mask';
-
+import { CheckoutModalComponent } from './shopping-list-checkout/checkout-modal/checkout-modal.component';
+import { MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     ShoppingListItemComponent,
     AboutComponent,
     ShoppingListAddItemFormComponent,
-    ShoppingListCheckoutComponent
+    ShoppingListCheckoutComponent,
+    CheckoutModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,12 @@ import { TextMaskModule } from 'angular2-text-mask';
     AngularFireAuthModule,
     RouterModule.forRoot(APP_ROUTES),
     CurrencyMaskModule,
-    TextMaskModule
+    TextMaskModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [ShoppingListService, AuthService],
-  bootstrap: [AppComponent]
+  providers: [ShoppingListService, AuthService, MatDialog],
+  bootstrap: [AppComponent],
+  entryComponents: [CheckoutModalComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,10 +10,14 @@ export class ShoppingListComponent implements OnInit {
   private showNewItem: boolean = false;
   private value = 1;
 
-  constructor() {
+  constructor(private myShoppingListService: ShoppingListService) {
   }
 
   ngOnInit() {
+  }
+
+  public shouldDisableCheckout(){
+    return parseFloat(this.myShoppingListService.getTotalPrice()) <= 0;
   }
 
   public shouldAdd() {

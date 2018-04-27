@@ -3,7 +3,7 @@
         <button type="button" class="btn btn-primary col-4 mx-1" (click)="shouldAdd()">
           <i class="fa fa-cart-plus" aria-hidden="true"></i>
         </button>
-        <button type="button" class="btn btn-primary col-7" routerLink="/shopping-list/shopping-list-checkout">Proceed to checkout</button>
+        <button type="button" [disabled]="shouldDisableCheckout()" class="btn btn-primary col-7" routerLink="/shopping-list/shopping-list-checkout">Proceed to checkout</button>
     </div>
 
     <app-shopping-list-add-item-form *ngIf="showNewItem" (onActionClicked)="action($event)">

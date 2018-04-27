@@ -38,8 +38,7 @@
     </div>
     <div class="form-group">
         <label>CVC</label>
-        <input type="text"  [textMask]="{mask: myCardCVCMask}" class="form-control" [(ngModel)]="myCardCVC" name="myCardCVC">
+        <input type="text" [textMask]="{mask: myCardCVCMask}" class="form-control" [(ngModel)]="myCardCVC" name="myCardCVC">
     </div>
-        <button type="submit" class="btn btn-block btn-primary mt-3" (click)="openModel()">Complete</button>
+        <button mat-button type="submit" class="btn btn-block btn-primary mt-3" (click)="openDialog()">Complete</button>
   </form>
-  
