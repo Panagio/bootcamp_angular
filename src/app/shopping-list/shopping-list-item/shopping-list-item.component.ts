@@ -56,15 +56,4 @@ export class ShoppingListItemComponent implements OnInit {
   public removeItem(item){
     this.myShoppingListService.remove(item);
   }
-
-  public editItem(){
-   /* let itemEdited = {
-      key: this.listItem.key,
-      disabled: true
-    }
-
-    this.myShoppingListService.edit(itemEdited);
-    */
-  }
-
 }
